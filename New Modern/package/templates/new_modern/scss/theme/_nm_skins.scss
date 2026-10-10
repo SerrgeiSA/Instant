@@ -1,0 +1,220 @@
+// Цветовые скины New Modern.
+// Каждый скин задаёт полный набор цветов, из которого строятся переменные Bootstrap,
+// поэтому перекрашивается весь сайт: ссылки, кнопки, формы, меню, шапка, подвал.
+$nm-skins: (
+    ocean: (
+        primary: #1d6fe0, accent: #ff7a1a, bg: #f3f6fb, surface: #ffffff,
+        text: #1f2a37, heading: #0f1b2d, muted: #66768c, border: #e1e8f1,
+        topbar: #0f1b2d, header: #ffffff, nav: #1d6fe0, footer: #0f1b2d
+    ),
+    emerald: (
+        primary: #0e9f7e, accent: #ffb020, bg: #f2f8f6, surface: #ffffff,
+        text: #1b2b26, heading: #0f241d, muted: #627a71, border: #dbe9e4,
+        topbar: #0c2a22, header: #ffffff, nav: #0b7f64, footer: #0c2a22
+    ),
+    sunset: (
+        primary: #e5532b, accent: #2457c5, bg: #fbf6f3, surface: #ffffff,
+        text: #2b211d, heading: #1d120d, muted: #84716a, border: #efe1d9,
+        topbar: #2a1610, header: #ffffff, nav: #e5532b, footer: #2a1610
+    ),
+    berry: (
+        primary: #c2185b, accent: #00a3a3, bg: #fbf5f8, surface: #ffffff,
+        text: #2a1d24, heading: #1b0f15, muted: #876f7d, border: #f0dfe8,
+        topbar: #2a0f1d, header: #ffffff, nav: #a3134c, footer: #2a0f1d
+    ),
+    indigo: (
+        primary: #4f46e5, accent: #ec4899, bg: #f5f5fc, surface: #ffffff,
+        text: #1f2033, heading: #121327, muted: #6b6d89, border: #e3e3f3,
+        topbar: #15153a, header: #ffffff, nav: #4f46e5, footer: #15153a
+    ),
+    graphite: (
+        primary: #1f2937, accent: #f59e0b, link: #b45309, bg: #f5f5f4, surface: #ffffff,
+        text: #1c1917, heading: #0c0a09, muted: #736b66, border: #e7e5e4,
+        topbar: #0c0a09, header: #ffffff, nav: #1f2937, footer: #0c0a09
+    ),
+    forest: (
+        primary: #2e7d32, accent: #c8a24a, bg: #f4f6f1, surface: #ffffff,
+        text: #1f261d, heading: #141a12, muted: #6c7766, border: #dfe6d8,
+        topbar: #172414, header: #ffffff, nav: #24622a, footer: #172414
+    ),
+    wine: (
+        primary: #8e1b3a, accent: #c9a227, bg: #f8f4f2, surface: #ffffff,
+        text: #2a1e1f, heading: #1a0f11, muted: #836e6d, border: #ebdfdc,
+        topbar: #24090f, header: #ffffff, nav: #8e1b3a, footer: #24090f
+    ),
+    sand: (
+        primary: #b45309, accent: #0f766e, bg: #faf7f2, surface: #fffdf9,
+        text: #2d2419, heading: #1c160e, muted: #807160, border: #ebe2d3,
+        topbar: #3b2a17, header: #fffdf9, nav: #b45309, footer: #3b2a17
+    ),
+    night: (
+        primary: #4f9cff, accent: #ffb547, bg: #0f141b, surface: #171e27,
+        text: #d3dbe6, heading: #f1f5fa, muted: #8896a8, border: #263140,
+        topbar: #0a0e13, header: #131a22, nav: #18212c, footer: #0a0e13,
+        dark: true
+    )
+);
+
+// Текущий скин (неизвестное имя — Океан)
+$nm-s: map-get($nm-skins, $nm-skin);
+@if $nm-s == null { $nm-s: map-get($nm-skins, ocean); }
+
+@function nm-pick($custom, $key) {
+    @if $custom and $custom != '' and $custom != 'false' { @return $custom; }
+    @return map-get($nm-s, $key);
+}
+
+$nm-is-dark:  if(map-get($nm-s, dark) == true, true, false);
+
+$nm-primary:  nm-pick($nm-c-primary, primary);
+$nm-accent:   nm-pick($nm-c-accent, accent);
+$nm-bg:       nm-pick($nm-c-bg, bg);
+$nm-surface:  nm-pick($nm-c-surface, surface);
+$nm-text:     nm-pick($nm-c-text, text);
+$nm-heading:  nm-pick($nm-c-heading, heading);
+$nm-muted:    map-get($nm-s, muted);
+$nm-border:   map-get($nm-s, border);
+$nm-topbar:   nm-pick($nm-c-topbar, topbar);
+$nm-header:   nm-pick($nm-c-header, header);
+$nm-nav:      nm-pick($nm-c-nav, nav);
+$nm-footer:   nm-pick($nm-c-footer, footer);
+$nm-link:     if($nm-c-link and $nm-c-link != 'false', $nm-c-link, if(map-has-key($nm-s, link), map-get($nm-s, link), $nm-primary));
+
+// Контрастный цвет текста для произвольного фона
+@function nm-on($bg) {
+    @if (lightness($bg) > 62%) { @return #1b1f24; }
+    @return #ffffff;
+}
+
+$nm-topbar-color: rgba(nm-on($nm-topbar), .78);
+$nm-header-color: nm-on($nm-header);
+$nm-nav-color:    nm-on($nm-nav);
+$nm-footer-color: rgba(nm-on($nm-footer), .68);
+$nm-footer-head:  nm-on($nm-footer);
+
+// Тёмный скин: шкала серого переворачивается, чтобы компоненты modern
+// (фоны блоков, рамки, вторичный текст) оставались читаемыми
+@if $nm-is-dark {
+    $gray-100: mix($nm-surface, $nm-text, 92%);
+    $gray-200: mix($nm-surface, $nm-text, 86%);
+    $gray-300: mix($nm-surface, $nm-text, 78%);
+    $gray-400: mix($nm-surface, $nm-text, 62%);
+    $gray-500: mix($nm-surface, $nm-text, 48%);
+    $gray-600: mix($nm-surface, $nm-text, 36%);
+    $gray-700: mix($nm-surface, $nm-text, 22%);
+    $gray-800: mix($nm-surface, $nm-text, 12%);
+    $gray-900: $nm-text;
+}
+
+// Контрастный текст для цветных фонов (не зависит от перевёрнутой шкалы серого)
+$yiq-text-dark:  #1b1f24;
+$yiq-text-light: #ffffff;
+
+// ---- Переменные Bootstrap из скина ----
+$primary:   $nm-primary;
+$secondary: mix($nm-muted, $nm-text, 80%);
+$success:   #1f9d55;
+$info:      #0ea5e9;
+$warning:   #f5b301;
+$danger:    #e5383b;
+$light:     if($nm-is-dark, mix($nm-surface, $nm-text, 88%), mix($nm-bg, #ffffff, 50%));
+$dark:      if($nm-is-dark, mix($nm-surface, $nm-text, 25%), $nm-heading);
+
+$body-bg:        $nm-bg;
+$body-color:     $nm-text;
+$headings-color: $nm-heading;
+$text-muted:     $nm-muted;
+$link-color:     $nm-link;
+$link-hover-color: if($nm-is-dark, lighten($nm-link, 12%), darken($nm-link, 12%));
+$border-color:   $nm-border;
+$hr-border-color: $nm-border;
+$component-active-bg: $nm-primary;
+
+$card-bg:            $nm-surface;
+$card-border-color:  $nm-border;
+$card-cap-bg:        $nm-surface;
+
+$input-bg:               $nm-surface;
+$input-color:            $nm-text;
+$input-border-color:     mix($nm-border, $nm-text, 82%);
+$input-placeholder-color: $nm-muted;
+$input-disabled-bg:      mix($nm-bg, $nm-surface, 50%);
+$input-focus-border-color: rgba($nm-primary, .55);
+$input-focus-color:      $nm-text;
+$input-focus-bg:         $nm-surface;
+$input-group-addon-bg:   $nm-bg;
+$input-group-addon-color: $nm-text;
+$input-group-addon-border-color: mix($nm-border, $nm-text, 82%);
+$custom-select-bg:       $nm-surface;
+$custom-select-color:    $nm-text;
+$custom-select-border-color: mix($nm-border, $nm-text, 82%);
+$custom-control-indicator-bg: $nm-surface;
+$custom-control-indicator-border-color: mix($nm-border, $nm-text, 70%);
+
+$dropdown-bg:            $nm-surface;
+$dropdown-color:         $nm-text;
+$dropdown-link-color:    $nm-text;
+$dropdown-link-hover-color: $nm-heading;
+$dropdown-link-hover-bg: mix($nm-primary, $nm-surface, 9%);
+$dropdown-link-active-bg: $nm-primary;
+$dropdown-border-color:  $nm-border;
+$dropdown-divider-bg:    $nm-border;
+$dropdown-header-color:  $nm-muted;
+
+$modal-content-bg:       $nm-surface;
+$modal-content-color:    $nm-text;
+$modal-header-border-color: $nm-border;
+$modal-footer-border-color: $nm-border;
+$list-group-bg:          $nm-surface;
+$list-group-color:       $nm-text;
+$list-group-border-color: $nm-border;
+$list-group-action-color: $nm-text;
+$list-group-hover-bg:    mix($nm-primary, $nm-surface, 6%);
+$list-group-action-hover-color: $nm-heading;
+$table-color:            $nm-text;
+$table-border-color:     $nm-border;
+$table-accent-bg:        rgba($nm-text, .03);
+$table-hover-bg:         rgba($nm-text, .05);
+$table-head-bg:          $nm-bg;
+$table-head-color:       $nm-heading;
+
+$pagination-color:       $nm-link;
+$pagination-bg:          $nm-surface;
+$pagination-border-color: $nm-border;
+$pagination-hover-color: $nm-heading;
+$pagination-hover-bg:    mix($nm-primary, $nm-surface, 10%);
+$pagination-hover-border-color: $nm-border;
+$pagination-active-bg:   $nm-primary;
+$pagination-active-border-color: $nm-primary;
+$pagination-disabled-color: $nm-muted;
+$pagination-disabled-bg: $nm-surface;
+$pagination-disabled-border-color: $nm-border;
+
+$nav-tabs-border-color:  $nm-border;
+$nav-tabs-link-hover-border-color: $nm-border $nm-border $nm-border;
+$nav-tabs-link-active-color: $nm-heading;
+$nav-tabs-link-active-bg: $nm-surface;
+$nav-tabs-link-active-border-color: $nm-border $nm-border $nm-surface;
+$nav-pills-link-active-bg: $nm-primary;
+
+$popover-bg:             $nm-surface;
+$popover-border-color:   $nm-border;
+$popover-body-color:     $nm-text;
+$toast-background-color: rgba($nm-surface, .97);
+$toast-color:            $nm-text;
+$toast-header-background-color: $nm-surface;
+$toast-header-color:     $nm-heading;
+$breadcrumb-active-color: $nm-muted;
+$breadcrumb-divider-color: $nm-muted;
+$close-color:            $nm-text;
+$progress-bg:            $nm-border;
+$badge-font-weight:      600;
+$kbd-bg:                 $nm-heading;
+$mark-bg:                rgba($nm-accent, .25);
+
+// Переменные modern (шапка и подвал modern-раскладки)
+$header-bg:    $nm-header;
+$header-color: $nm-header-color;
+$footer-bg:    $nm-footer;
+$footer-color: $nm-footer-color;
+$modal-title-color: $nm-heading;
