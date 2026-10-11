@@ -1,0 +1,51 @@
+// Базовая гамма Bootstrap (в modern она приходила из настроек, в New Modern задаётся здесь)
+$white:    #ffffff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #eef0f3 !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #c6ccd3 !default;
+$gray-500: #adb5bd !default;
+$gray-600: #7a8591 !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000000 !default;
+$blue:     #1d6fe0 !default;
+$indigo:   #4f46e5 !default;
+$purple:   #7c3aed !default;
+$pink:     #db2777 !default;
+$red:      #e5383b !default;
+$orange:   #f97316 !default;
+$yellow:   #f5b301 !default;
+$green:    #1f9d55 !default;
+$teal:     #14b8a6 !default;
+$cyan:     #0ea5e9 !default;
+
+// Значения из настроек; false — не задано, берётся из скина
+$nm-skin:      ocean !default;
+$nm-c-primary: false !default;
+$nm-c-accent:  false !default;
+$nm-c-link:    false !default;
+$nm-c-bg:      false !default;
+$nm-c-surface: false !default;
+$nm-c-text:    false !default;
+$nm-c-heading: false !default;
+$nm-c-topbar:  false !default;
+$nm-c-header:  false !default;
+$nm-c-nav:     false !default;
+$nm-c-footer:  false !default;
+
+// Значения по умолчанию для переменных, которые modern получает из формы настроек
+// (нужны, пока настройки шаблона ещё ни разу не сохранялись)
+$font-size-base:     1rem !default;
+$spacer:             1rem !default;
+$grid-gutter-width:  30px !default;
+$enable-rounded:     true !default;
+$border-radius:      .5rem !default;
+$border-radius-lg:   .75rem !default;
+$border-radius-sm:   .375rem !default;
+$enable-shadows:     false !default;
+$enable-gradients:   false !default;
+$enable-responsive-font-sizes: false !default;
+$enable-modal-blur:  true !default;
+$avatar-inlist-size: 64px !default;

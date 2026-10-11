@@ -1,0 +1,64 @@
+// Виджет «Категории»: стили New Modern. Только CSS-переменные скина
+
+/* ---------- Виджет «Категории»: стили New Modern (nmcats) ---------- */
+.nm-cats ul { list-style: none; margin: 0; padding: 0; }
+.nm-cats__row { display: flex; align-items: stretch; gap: .15rem; }
+.nm-cats__link { flex: 1 1 auto; min-width: 0; display: flex; align-items: center; gap: .55rem; padding: .45rem .65rem; border-radius: .5rem; color: var(--nm-heading); font-weight: 500; line-height: 1.35; text-decoration: none; transition: background .15s ease, color .15s ease; }
+.nm-cats__link:hover, .nm-cats__link:focus-visible { background: rgba(var(--nm-primary-rgb), .09); color: var(--nm-heading); text-decoration: none; }
+.nm-cats__list--l0 > .nm-cats__item > .nm-cats__row > .nm-cats__link { font-weight: 600; }
+.nm-cats__icon { flex: 0 0 auto; display: inline-flex; color: var(--nm-accent); }
+.nm-cats__title { min-width: 0; overflow-wrap: anywhere; }
+.nm-cats__count { flex: 0 0 auto; margin-left: auto; padding: .05rem .5rem; border-radius: 999px; background: rgba(127, 127, 127, .15); color: var(--nm-muted); font-size: .75rem; font-weight: 600; line-height: 1.5; }
+.nm-cats__item.is-active > .nm-cats__row > .nm-cats__link { background: rgba(var(--nm-primary-rgb), .13); color: var(--nm-primary); }
+.nm-cats__list .nm-cats__list { padding-left: 1rem; }
+/* Дерево: направляющие линии */
+.nm-cats--tree .nm-cats__list .nm-cats__list { margin-left: 1.05rem; padding-left: .55rem; border-left: 1px solid var(--nm-border); }
+/* Аккордеоны: кнопка раскрытия и скрытые ветки */
+.nm-cats__toggle { position: relative; flex: 0 0 2.25rem; padding: 0; border: 0; border-radius: .5rem; background: transparent; color: var(--nm-muted); cursor: pointer; }
+.nm-cats__toggle:hover, .nm-cats__toggle:focus-visible { background: rgba(var(--nm-primary-rgb), .09); color: var(--nm-heading); }
+.nm-cats__toggle::before { content: ""; position: absolute; left: 50%; top: 50%; width: .45rem; height: .45rem; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: translate(-50%, -70%) rotate(45deg); transition: transform .2s ease; }
+.nm-cats__item.is-open > .nm-cats__row > .nm-cats__toggle::before { transform: translate(-50%, -30%) rotate(-135deg); }
+.nm-cats--collapse .nm-cats__item > .nm-cats__list { display: none; }
+.nm-cats--collapse .nm-cats__item.is-open > .nm-cats__list { display: block; animation: nm-cats-in .18s ease-out; }
+/* Аккордеон с плюсом */
+.nm-cats--plus .nm-cats__toggle::before { width: .7rem; height: 2px; border: 0; background: currentColor; transform: translate(-50%, -50%); }
+.nm-cats--plus .nm-cats__toggle::after { content: ""; position: absolute; left: 50%; top: 50%; width: 2px; height: .7rem; background: currentColor; transform: translate(-50%, -50%); transition: transform .2s ease, opacity .2s ease; }
+.nm-cats--plus .nm-cats__item.is-open > .nm-cats__row > .nm-cats__toggle::before { transform: translate(-50%, -50%); }
+.nm-cats--plus .nm-cats__item.is-open > .nm-cats__row > .nm-cats__toggle::after { transform: translate(-50%, -50%) rotate(90deg); opacity: 0; }
+/* Аккордеон карточками */
+.nm-cats--cards > .nm-cats__list { display: flex; flex-direction: column; gap: .5rem; }
+.nm-cats--cards > .nm-cats__list > .nm-cats__item { overflow: hidden; border: 1px solid var(--nm-border); border-radius: .75rem; background: var(--nm-surface); }
+.nm-cats--cards > .nm-cats__list > .nm-cats__item > .nm-cats__row { padding: .15rem .25rem; }
+.nm-cats--cards .nm-cats__item.is-open > .nm-cats__list { padding: .35rem .5rem .5rem 1.25rem; border-top: 1px solid var(--nm-border); background: rgba(127, 127, 127, .05); }
+/* Выпадающее меню: подменю справа или слева (направление выбирает скрипт по месту виджета) */
+.nm-cats--fly .nm-cats__item { position: relative; }
+.nm-cats--fly .nm-cats__list .nm-cats__list { padding-left: 0; }
+.nm-cats--fly .nm-cats__item > .nm-cats__list { display: none; position: absolute; top: -.4rem; left: calc(100% - 2px); z-index: 20; min-width: 13rem; max-width: 20rem; padding: .4rem; border: 1px solid var(--nm-border); border-radius: .75rem; background: var(--nm-surface); box-shadow: var(--nm-shadow); }
+.nm-cats--fly .nm-cats__item:hover > .nm-cats__list, .nm-cats--fly .nm-cats__item:focus-within > .nm-cats__list { display: block; animation: nm-cats-in .15s ease-out; }
+.nm-cats--fly .nm-cats__item.nm-fly-left > .nm-cats__list { left: auto; right: calc(100% - 2px); }
+.nm-cats--fly .nm-cats__item.has-sub > .nm-cats__row > .nm-cats__link::after { content: ""; flex: 0 0 auto; width: .4rem; height: .4rem; margin-left: .35rem; border-right: 2px solid currentColor; border-top: 2px solid currentColor; opacity: .5; transform: rotate(45deg); }
+.nm-cats--fly .nm-cats__item.has-sub > .nm-cats__row > .nm-cats__link .nm-cats__count { margin-left: auto; }
+.nm-cats--fly .nm-cats__item.nm-fly-left.has-sub > .nm-cats__row > .nm-cats__link::after { transform: rotate(-135deg); }
+.nm-cats--fly .nm-cats__toggle { display: none; }
+/* Кнопки-метки */
+.nm-cats__chips { display: flex; flex-wrap: wrap; gap: .4rem; }
+.nm-cats__chip { display: inline-flex; align-items: center; gap: .4rem; padding: .3rem .8rem; border: 1px solid var(--nm-border); border-radius: 999px; background: var(--nm-surface); color: var(--nm-heading); font-size: .875rem; font-weight: 600; line-height: 1.4; text-decoration: none; }
+.nm-cats__chip:hover { border-color: var(--nm-primary); color: var(--nm-primary); text-decoration: none; }
+.nm-cats__chip.is-active { border-color: var(--nm-primary); background: var(--nm-primary); color: var(--nm-on-primary); }
+.nm-cats__chip .nm-cats__count { margin-left: 0; }
+/* Плитки */
+.nm-tile { display: flex; flex-direction: column; gap: .55rem; min-width: 0; color: var(--nm-heading); text-decoration: none; }
+.nm-tile:hover { color: var(--nm-primary); text-decoration: none; }
+.nm-tile__media { border-radius: .5rem; }
+.nm-tile__body { display: flex; align-items: baseline; gap: .5rem; font-weight: 600; line-height: 1.3; }
+.nm-tile.is-active .nm-tile__title { color: var(--nm-primary); }
+@keyframes nm-cats-in { from { opacity: 0; transform: translateY(-3px); } to { opacity: 1; transform: none; } }
+/* Узкие экраны: выпадающее меню раскрывается внутри списка по кнопке */
+@media (max-width: 767.98px) {
+  .nm-cats--fly .nm-cats__item > .nm-cats__list { position: static; min-width: 0; max-width: none; padding: 0 0 0 1rem; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+  .nm-cats--fly .nm-cats__item:hover > .nm-cats__list, .nm-cats--fly .nm-cats__item:focus-within > .nm-cats__list { display: none; }
+  .nm-cats--fly .nm-cats__item.is-open > .nm-cats__list { display: block; }
+  .nm-cats--fly .nm-cats__toggle { display: block; }
+  .nm-cats--fly .nm-cats__item.has-sub > .nm-cats__row > .nm-cats__link::after { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .nm-cats__link, .nm-cats__toggle::before, .nm-cats__toggle::after { transition: none; } .nm-cats--collapse .nm-cats__item.is-open > .nm-cats__list, .nm-cats--fly .nm-cats__item:hover > .nm-cats__list { animation: none; } }

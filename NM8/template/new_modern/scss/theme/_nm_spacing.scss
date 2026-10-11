@@ -1,0 +1,67 @@
+// New Modern: ширина сайта, отступы, скругления (этапы 3–4)
+
+// ---------- Ширина ----------
+.container {
+    padding-left: $nm-container-pad;
+    padding-right: $nm-container-pad;
+}
+@if $nm-layout == fixed or $nm-layout == boxed {
+    // Плавно растягивается до заданной ширины, без ступеней
+    .container { max-width: $nm-container-w; }
+}
+@if $nm-layout == fluid {
+    .container { max-width: none; }
+}
+@if $nm-layout == boxed {
+    // Сайт в рамке: ряды сетки ограничены шириной, вокруг — фон
+    $nm-box-bg: if($nm-is-dark, darken($nm-bg, 3%), mix($nm-text, $nm-bg, 8%));
+    body { background-color: $nm-box-bg; }
+    body > .nm-topbar, body > .nm-header, body > .nm-nav, body > .nm-header-widget,
+    body > .nm-hero, body > .nm-before, body > .nm-main, body > .nm-after,
+    body > .nm-promo, body > .nm-footer, body > .nm-footer-bottom {
+        width: 100%;
+        max-width: $nm-container-w + $nm-container-pad * 2;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    body > .nm-before, body > .nm-main, body > .nm-after { background-color: $nm-bg; }
+    @include media-breakpoint-up(xl) {
+        body > .nm-topbar { margin-top: 1rem; border-radius: $border-radius-lg $border-radius-lg 0 0; }
+        body > .nm-footer-bottom { margin-bottom: 1rem; border-radius: 0 0 $border-radius-lg $border-radius-lg; }
+        body > .nm-topbar ~ .nm-header { margin-top: 0; }
+    }
+}
+
+// ---------- Отступы ----------
+.icms-widget:not(:last-child), .icms-widget__tabbed:not(:last-child) {
+    margin-bottom: $nm-gap !important;
+}
+.nm-before { padding-top: $nm-section; }
+.nm-main { padding-top: $nm-section; padding-bottom: $nm-section * 1.5; }
+.nm-after { padding-bottom: $nm-section; }
+.nm-footer { padding-top: $nm-section * 2; }
+
+// ---------- Скругления ----------
+.nm-header {
+    .form-control { border-radius: $nm-control-radius; }
+    .input-group .form-control { border-top-right-radius: 0; border-bottom-right-radius: 0; }
+    .input-group-append .btn { border-radius: 0 $nm-control-radius $nm-control-radius 0; }
+}
+.icms-content-body img, .icms-content-fields img, .content_list_item img,
+.icms-content-item__image img, .img-thumbnail {
+    border-radius: $nm-img-r;
+}
+// Зум картинки при наведении (modern): обрезающая обёртка тоже со скруглением.
+// isolation и translateZ — чтобы Safari не терял скругление во время анимации
+.content_list .ft_image a, .content_list .ft_image .nm-media, .nm-media {
+    border-radius: $nm-img-r;
+    overflow: hidden;
+    isolation: isolate;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+// 0.3.1: обёртка-ссылка должна быть блоком, иначе маска и overflow считаются по строке текста
+.content_list .ft_image a { display: block; max-width: 100%; }
+.content_list .ft_image a > img { display: block; border-radius: 0; }
+
+.dropdown-menu { border-radius: $border-radius-lg; }
+.badge { border-radius: if($nm-controls == pill, 50rem, $border-radius-sm); }

@@ -1,0 +1,6 @@
+// New Modern: скин подключается до переменных Bootstrap,
+// поэтому в цветах скина собираются и стили компонентов, и вендоров
+@import "../theme/nm_gamma";
+@import "../theme/nm_skins";
+@import "../theme/nm_settings";
+@import "bs_variables";
