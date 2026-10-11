@@ -1,0 +1,191 @@
+
+	<?php $this->addMainCSS('templates/modern/widgets/obj/css/styles.css'); ?>
+    <?php if($widget->options['sl_on']){ $this->addCSS('templates/modern/widgets/obj/css/jquery-owl.carousel.css'); } ?> 
+	<?php $this->addMainCSS('templates/modern/widgets/obj/css/animate.css'); ?>
+	<?php $this->addMainCSS('templates/modern/widgets/obj/css/about_us.css'); ?>
+	<?php $this->addMainJS('templates/modern/widgets/obj/js/script.js'); ?>
+	<?php if($widget->options['sl_on']){ $this->addMainJS('templates/default/js/jquery-owl.carousel.js'); } ?>
+	
+<?php if($items){ ?>
+
+
+    <div class="container text-center wo_wrap wo_about_us">
+
+
+<?php if(!empty($teaser)){ include('inc/teaser.tpl.php'); } ?>	
+
+	<div class="row<?php if($widget->options['sl_on']){ ?> owl-carousel owl-theme<?php } ?>
+<?php if(!empty($widget->options['objs_class'])){ echo ' '.$widget->options['objs_class']; } ?>" id="widget_<?php echo $widget->bind_id; ?>">
+	
+
+<?php 
+ $count = 1; 
+ foreach($items as $obj){ 
+	
+	      $image = !empty($obj['paths']) ? $obj['paths'] : '';		  
+	      $image_small = $image[$widget->options['img_small']];
+	      $image_normal = $image[$widget->options['img_normal']];
+	      $image_full = $image[$widget->options['img_full']];
+		  $image_size = $widget->options['img_normal'];
+		  $image_size_small = $widget->options['img_small'];	
+          
+		  $preset = $widget->options['sl_on'] ? $widget->options['sl_image_preset'] : $widget->options['preset'];	
+         		  
+	
+		  $item = $obj['titles'];
+		  $title  = !empty($item['title']) ? $item['title'] : '';
+		  
+          $teaser  = !empty($item['teaser']) ? cmsEventsManager::hook('html_filter', array(
+                'text'                => $item['teaser'],
+                'is_auto_br'          => true,
+                'build_redirect_link' => true
+            )) : '';	
+			
+
+
+         for ($x=1; $x<3; $x++){ 
+
+          $idx = ($x==1) ? '' : $x;
+
+          $link = !empty($item['link'.$idx]) ? $item['link'.$idx] : '';		  
+		  $data['link'.$idx.'_attr']  = !empty($item['link'.$idx.'_attr']) ? $item['link'.$idx.'_attr'] : '';
+        if($link){		  
+		  $link = explode('|',$link);
+		  $data['link'.$idx.'_title']  = !empty($link[0]) ? $link[0] : '';
+		  $data['link'.$idx.'_url']  = !empty($link[1]) ? href_to($link[1]) : '';
+        }else{
+	      $data['link'.$idx.'_title']  = '';
+	      $data['link'.$idx.'_url']  = '';
+		  $data['link'.$idx.'_attr'] = '';
+        }
+
+        }
+		
+		 $item_tag = !empty($data['link_url']) ? 'a' : 'div';
+		 
+	?>	
+	
+	
+        
+          <div class="obj<?php if(!$widget->options['sl_on']){ ?> col-md-3 <?php } ?><?php if(!empty($item['obj_class'])){ echo $item['obj_class']; } ?>"<?php if(!empty($item['obj_attr'])){ echo ' '.$item['obj_attr']; } ?>>
+		  
+		  
+		  
+		  
+            <div class="small text-center">
+	
+
+<<?php echo $item_tag; ?> class="wo_img_wrap<?php echo empty($img_w) ? ' w-auto' : ''; ?>"<?php if($data['link_url']){ ?> href="<?php echo $data['link_url']; ?>"<?php } ?> style="<?php if($widget->options['image_style']=='cover'){ ?>background:url(<?php echo html_image_src($image, $preset, true); ?>);<?php if(!empty($widget->options['img_radius'])){ ?>border-radius:<?php echo $widget->options['img_radius']; ?>;overflow:hidden;<?php } ?><?php } ?><?php echo $img_w ? 'width:'.$img_w.';' : ''; ?><?php echo $img_h ? 'height:'.$img_h.';' : ''; ?>">			  
+<?php if(empty($widget->options['image_style'])){ ?>
+<img src="<?php echo html_image_src($image, $preset, true); ?>" alt="<?php echo $title; ?>"<?php if(!empty($widget->options['img_radius'])){ ?>style="border-radius:<?php echo $widget->options['img_radius']; ?>;overflow:hidden;"<?php } ?>>
+<?php } ?>
+</<?php echo $item_tag; ?>>
+		
+	
+    <div class="info">
+	
+	<?php if($title){ ?>
+	<h3 class="title">
+	
+	<?php if($data['link_url']){ ?>
+	<a href="<?php echo $data['link_url']; ?>" <?php echo $data['link_attr']; ?>><?php } ?>
+	
+	<?php if(!$data['link_url'] && $data['link_attr']){ ?>	
+	<span <?php echo $data['link_attr']; ?>><?php echo $title; ?></span>	
+	<?php }else{ ?>
+	<?php echo $title; ?>
+	<?php } ?>
+	
+	<?php if($data['link_url']){ ?></a><?php } ?>
+
+	
+	</h3>
+	<?php } ?>
+	
+	<?php if($teaser){ ?>
+                <p class="mr-0"><?php echo html_clean($teaser); ?></p>
+	<?php } ?>			
+    </div>
+			  
+			  
+			  
+			  
+            </div>
+          </div>
+
+ 
+
+    <?php } ?>	
+	
+	
+	</div>
+	
+	
+	
+	</div>
+
+	  
+	  
+<?php if($widget->options['sl_on']){ ?>
+
+<?php ob_start(); ?>
+    <script>
+
+	$(function(){
+		
+    var widget_<?php echo $widget->bind_id; ?>_owl = $('#widget_<?php echo $widget->bind_id; ?>').owlCarousel({
+	rtl:false,
+    loop:false,
+	rewind : <?php echo $widget->options['sl_rewind'] ? 1 : 0; ?>,
+    margin:<?php echo $widget->options['sl_margin']; ?>,
+    autoHeight:true, 
+    nav:true, 
+	navText:['',''],
+	dots:false,
+	smartSpeed:1000,
+	autoplay:<?php echo $widget->options['sl_autoplay']; ?>,
+    autoplayTimeout: <?php echo $widget->options['sl_autoplaytimeout']; ?>,
+    autoplayHoverPause: <?php echo $widget->options['sl_autoplayHoverPause']; ?>,		
+	items:<?php echo $widget->options['sl_items']; ?>,
+    responsiveClass: true,
+	<?php if($widget->options['sl_animateIn']){ ?>
+	animateIn:<?php echo $widget->options['sl_animateIn']; ?>,
+	<?php } ?>
+	<?php if($widget->options['sl_animateOut']){ ?>
+	animateOut:<?php echo $widget->options['sl_animateOut']; ?>,
+	<?php } ?>	
+	
+	
+	<?php if($widget->options['sl_items'] > 1){ ?>
+    responsive: {
+        0:{
+          items: 1
+        },
+        480:{
+          items: 2
+        },
+        750:{
+          items: 3
+        },
+        768:{
+          items: 3
+        },
+        800:{
+          items: <?php echo $widget->options['sl_items']; ?>
+        },
+	}
+	<?php } ?>	
+	});
+
+
+	});
+  
+	</script>
+
+<?php $this->addBottom(ob_get_clean()); ?>
+
+
+<?php } ?>
+
+<?php } ?>
+

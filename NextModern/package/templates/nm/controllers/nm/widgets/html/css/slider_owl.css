@@ -1,0 +1,5 @@
+.wo_slider_owl{ overflow:hidden; position:relative; }
+.wo_slider_owl.owl-carousel .owl-item{ text-align:center; }
+.wo_slider_owl h4,
+.wo_slider_owl .title_link{ margin:0; padding:0; margin-top:6px; display:block; font-size:15px; }
+
