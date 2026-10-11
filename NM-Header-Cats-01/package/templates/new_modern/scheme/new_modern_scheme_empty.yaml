@@ -1,0 +1,367 @@
+---
+layout:
+  rows:
+    51:
+      id: "51"
+      parent_id: null
+      title: Верхняя панель
+      tag: div
+      template: new_modern
+      ordering: "1"
+      nested_position: null
+      class: align-items-center nm-topbar__row
+      options: '{"no_gutters":null,"vertical_align":"","horizontal_align":"","container":"container","container_tag":"div","container_tag_class":"","parrent_tag":"div","parrent_tag_class":"nm-topbar"}'
+    52:
+      id: "52"
+      parent_id: null
+      title: Шапка
+      tag: div
+      template: new_modern
+      ordering: "2"
+      nested_position: null
+      class: >
+        align-items-center flex-nowrap
+        nm-header__row
+      options: '{"no_gutters":null,"vertical_align":"","horizontal_align":"","container":"container","container_tag":"div","container_tag_class":"","parrent_tag":"header","parrent_tag_class":"nm-header"}'
+    53:
+      id: "53"
+      parent_id: null
+      title: Главное меню
+      tag: null
+      template: new_modern
+      ordering: "3"
+      nested_position: null
+      class: null
+      options: '{"no_gutters":null,"vertical_align":"","horizontal_align":"","container":"container","container_tag":"div","container_tag_class":"","parrent_tag":"nav","parrent_tag_class":"nm-nav"}'
+    54:
+      id: "54"
+      parent_id: null
+      title: Единая шапка-виджет
+      tag: null
+      template: new_modern
+      ordering: "4"
+      nested_position: null
+      class: null
+      options: '{"no_gutters":null,"vertical_align":"","horizontal_align":"","container":"","container_tag":"div","container_tag_class":"","parrent_tag":"div","parrent_tag_class":"nm-header-widget"}'
+    55:
+      id: "55"
+      parent_id: null
+      title: Первый экран
+      tag: null
+      template: new_modern
+      ordering: "5"
+      nested_position: null
+      class: null
+      options: '{"no_gutters":null,"vertical_align":"","horizontal_align":"","container":"","container_tag":"div","container_tag_class":"","parrent_tag":"section","parrent_tag_class":"nm-hero"}'
+    56:
+      id: "56"
+      parent_id: null
+      title: Над контентом
+      tag: div
+      template: new_modern
+      ordering: "6"
+      nested_position: null
+      class: null
+      options: '{"no_gutters":null,"vertical_align":"","horizontal_align":"","container":"container","container_tag":"div","container_tag_class":"","parrent_tag":"div","parrent_tag_class":"nm-before"}'
+    57:
+      id: "57"
+      parent_id: null
+      title: Контент
+      tag: div
+      template: new_modern
+      ordering: "7"
+      nested_position: null
+      class: null
+      options: '{"no_gutters":null,"vertical_align":"","horizontal_align":"","container":"container","container_tag":"main","container_tag_class":"nm-main","parrent_tag":"","parrent_tag_class":""}'
+    58:
+      id: "58"
+      parent_id: null
+      title: Под контентом
+      tag: div
+      template: new_modern
+      ordering: "8"
+      nested_position: null
+      class: null
+      options: '{"no_gutters":null,"vertical_align":"","horizontal_align":"","container":"container","container_tag":"div","container_tag_class":"","parrent_tag":"section","parrent_tag_class":"nm-after"}'
+    59:
+      id: "59"
+      parent_id: null
+      title: Во всю ширину внизу
+      tag: null
+      template: new_modern
+      ordering: "9"
+      nested_position: null
+      class: null
+      options: '{"no_gutters":null,"vertical_align":"","horizontal_align":"","container":"","container_tag":"div","container_tag_class":"","parrent_tag":"section","parrent_tag_class":"nm-promo"}'
+    60:
+      id: "60"
+      parent_id: null
+      title: Подвал
+      tag: div
+      template: new_modern
+      ordering: "10"
+      nested_position: null
+      class: null
+      options: '{"no_gutters":null,"vertical_align":"","horizontal_align":"","container":"container","container_tag":"div","container_tag_class":"","parrent_tag":"footer","parrent_tag_class":"nm-footer"}'
+    61:
+      id: "61"
+      parent_id: null
+      title: Нижняя строка
+      tag: div
+      template: new_modern
+      ordering: "11"
+      nested_position: null
+      class: align-items-center nm-footer-bottom__row
+      options: '{"no_gutters":null,"vertical_align":"","horizontal_align":"","container":"container","container_tag":"div","container_tag_class":"","parrent_tag":"div","parrent_tag_class":"nm-footer-bottom"}'
+  cols:
+    107:
+      id: "107"
+      row_id: "51"
+      title: Слева
+      name: nm_topbar_left
+      type: typical
+      ordering: "1"
+      tag: div
+      class: null
+      wrapper: null
+      options: '{"cut_before":null,"default_col_class":"col","md_col_class":"","lg_col_class":"","xl_col_class":"","col_class":"","default_order":0,"sm_order":0,"md_order":0,"lg_order":0,"xl_order":0}'
+    108:
+      id: "108"
+      row_id: "51"
+      title: Справа
+      name: nm_topbar_right
+      type: typical
+      ordering: "2"
+      tag: div
+      class: d-flex justify-content-end
+      wrapper: null
+      options: '{"cut_before":null,"default_col_class":"col-auto","md_col_class":"","lg_col_class":"","xl_col_class":"","col_class":"","default_order":0,"sm_order":0,"md_order":0,"lg_order":0,"xl_order":0}'
+    109:
+      id: "109"
+      row_id: "52"
+      title: Логотип
+      name: nm_logo
+      type: typical
+      ordering: "1"
+      tag: div
+      class: nm-header__logo
+      wrapper: null
+      options: '{"cut_before":null,"default_col_class":"col-auto","md_col_class":"","lg_col_class":"","xl_col_class":"","col_class":"","default_order":0,"sm_order":0,"md_order":0,"lg_order":0,"xl_order":0}'
+    110:
+      id: "110"
+      row_id: "52"
+      title: Центр шапки (поиск)
+      name: nm_header_center
+      type: typical
+      ordering: "2"
+      tag: div
+      class: d-none d-lg-block
+      wrapper: null
+      options: '{"cut_before":null,"default_col_class":"col","md_col_class":"","lg_col_class":"","xl_col_class":"","col_class":"","default_order":0,"sm_order":0,"md_order":0,"lg_order":0,"xl_order":0}'
+    111:
+      id: "111"
+      row_id: "52"
+      title: >
+        Справа (меню
+        пользователя)
+      name: nm_header_right
+      type: typical
+      ordering: "3"
+      tag: div
+      class: >
+        d-flex align-items-center
+        justify-content-end ml-auto
+      wrapper: null
+      options: '{"cut_before":null,"default_col_class":"col-auto","md_col_class":"","lg_col_class":"","xl_col_class":"","col_class":"","default_order":0,"sm_order":0,"md_order":0,"lg_order":0,"xl_order":0}'
+    112:
+      id: "112"
+      row_id: "53"
+      title: Меню
+      name: nm_menu
+      type: custom
+      ordering: "1"
+      tag: div
+      class: null
+      wrapper: '{position}'
+      options: '{"cut_before":null,"default_col_class":"","md_col_class":"","lg_col_class":"","xl_col_class":"","col_class":"","default_order":0,"sm_order":0,"md_order":0,"lg_order":0,"xl_order":0}'
+    113:
+      id: "113"
+      row_id: "54"
+      title: Шапка во всю ширину
+      name: nm_header_full
+      type: custom
+      ordering: "1"
+      tag: div
+      class: null
+      wrapper: '{position}'
+      options: '{"cut_before":null,"default_col_class":"","md_col_class":"","lg_col_class":"","xl_col_class":"","col_class":"","default_order":0,"sm_order":0,"md_order":0,"lg_order":0,"xl_order":0}'
+    114:
+      id: "114"
+      row_id: "55"
+      title: Во всю ширину
+      name: nm_hero
+      type: custom
+      ordering: "1"
+      tag: div
+      class: null
+      wrapper: '{position}'
+      options: '{"cut_before":null,"default_col_class":"","md_col_class":"","lg_col_class":"","xl_col_class":"","col_class":"","default_order":0,"sm_order":0,"md_order":0,"lg_order":0,"xl_order":0}'
+    115:
+      id: "115"
+      row_id: "56"
+      title: Глубиномер и действия
+      name: nm_breadcrumbs
+      type: typical
+      ordering: "1"
+      tag: div
+      class: >
+        d-flex justify-content-between
+        align-items-center flex-wrap
+      wrapper: null
+      options: '{"cut_before":null,"default_col_class":"col-12","md_col_class":"","lg_col_class":"","xl_col_class":"","col_class":"","default_order":0,"sm_order":0,"md_order":0,"lg_order":0,"xl_order":0}'
+    116:
+      id: "116"
+      row_id: "56"
+      title: Перед телом страницы
+      name: nm_before
+      type: typical
+      ordering: "2"
+      tag: div
+      class: mt-3
+      wrapper: null
+      options: '{"cut_before":null,"default_col_class":"col-12","md_col_class":"","lg_col_class":"","xl_col_class":"","col_class":"","default_order":0,"sm_order":0,"md_order":0,"lg_order":0,"xl_order":0}'
+    117:
+      id: "117"
+      row_id: "57"
+      title: Левая колонка
+      name: nm_left
+      type: typical
+      ordering: "1"
+      tag: aside
+      class: nm-aside
+      wrapper: null
+      options: '{"cut_before":null,"default_col_class":"","md_col_class":"","lg_col_class":"col-lg-3","xl_col_class":"","col_class":"","default_order":2,"sm_order":0,"md_order":0,"lg_order":1,"xl_order":0}'
+    118:
+      id: "118"
+      row_id: "57"
+      title: Тело страницы
+      name: nm_body
+      type: typical
+      ordering: "2"
+      tag: article
+      class: nm-body mb-4
+      wrapper: null
+      options: '{"cut_before":null,"default_col_class":"","md_col_class":"","lg_col_class":"col-lg","xl_col_class":"","col_class":"","default_order":1,"sm_order":0,"md_order":0,"lg_order":2,"xl_order":0}'
+    119:
+      id: "119"
+      row_id: "57"
+      title: Правая колонка
+      name: nm_right
+      type: typical
+      ordering: "3"
+      tag: aside
+      class: nm-aside
+      wrapper: null
+      options: '{"cut_before":null,"default_col_class":"","md_col_class":"","lg_col_class":"col-lg-4","xl_col_class":"col-xl-3","col_class":"","default_order":3,"sm_order":0,"md_order":0,"lg_order":3,"xl_order":0}'
+    120:
+      id: "120"
+      row_id: "58"
+      title: Слева
+      name: nm_after_left
+      type: typical
+      ordering: "1"
+      tag: div
+      class: null
+      wrapper: null
+      options: '{"cut_before":null,"default_col_class":"","md_col_class":"col-md","lg_col_class":"","xl_col_class":"","col_class":"","default_order":0,"sm_order":0,"md_order":0,"lg_order":0,"xl_order":0}'
+    121:
+      id: "121"
+      row_id: "58"
+      title: Справа
+      name: nm_after_right
+      type: typical
+      ordering: "2"
+      tag: div
+      class: null
+      wrapper: null
+      options: '{"cut_before":null,"default_col_class":"","md_col_class":"col-md","lg_col_class":"","xl_col_class":"","col_class":"","default_order":0,"sm_order":0,"md_order":0,"lg_order":0,"xl_order":0}'
+    122:
+      id: "122"
+      row_id: "59"
+      title: Во всю ширину
+      name: nm_promo
+      type: custom
+      ordering: "1"
+      tag: div
+      class: null
+      wrapper: '{position}'
+      options: '{"cut_before":null,"default_col_class":"","md_col_class":"","lg_col_class":"","xl_col_class":"","col_class":"","default_order":0,"sm_order":0,"md_order":0,"lg_order":0,"xl_order":0}'
+    123:
+      id: "123"
+      row_id: "60"
+      title: Подвал 1
+      name: nm_footer_1
+      type: typical
+      ordering: "1"
+      tag: div
+      class: mb-4
+      wrapper: null
+      options: '{"cut_before":null,"default_col_class":"","md_col_class":"col-md-6","lg_col_class":"col-lg-3","xl_col_class":"","col_class":"","default_order":0,"sm_order":0,"md_order":0,"lg_order":0,"xl_order":0}'
+    124:
+      id: "124"
+      row_id: "60"
+      title: Подвал 2
+      name: nm_footer_2
+      type: typical
+      ordering: "2"
+      tag: div
+      class: mb-4
+      wrapper: null
+      options: '{"cut_before":null,"default_col_class":"","md_col_class":"col-md-6","lg_col_class":"col-lg-3","xl_col_class":"","col_class":"","default_order":0,"sm_order":0,"md_order":0,"lg_order":0,"xl_order":0}'
+    125:
+      id: "125"
+      row_id: "60"
+      title: Подвал 3
+      name: nm_footer_3
+      type: typical
+      ordering: "3"
+      tag: div
+      class: mb-4
+      wrapper: null
+      options: '{"cut_before":null,"default_col_class":"","md_col_class":"col-md-6","lg_col_class":"col-lg-3","xl_col_class":"","col_class":"","default_order":0,"sm_order":0,"md_order":0,"lg_order":0,"xl_order":0}'
+    126:
+      id: "126"
+      row_id: "60"
+      title: Подвал 4
+      name: nm_footer_4
+      type: typical
+      ordering: "4"
+      tag: div
+      class: mb-4
+      wrapper: null
+      options: '{"cut_before":null,"default_col_class":"","md_col_class":"col-md-6","lg_col_class":"col-lg-3","xl_col_class":"","col_class":"","default_order":0,"sm_order":0,"md_order":0,"lg_order":0,"xl_order":0}'
+    127:
+      id: "127"
+      row_id: "61"
+      title: Копирайт
+      name: nm_copyright
+      type: typical
+      ordering: "1"
+      tag: div
+      class: py-2
+      wrapper: null
+      options: '{"cut_before":null,"default_col_class":"","md_col_class":"col-md","lg_col_class":"","xl_col_class":"","col_class":"","default_order":0,"sm_order":0,"md_order":0,"lg_order":0,"xl_order":0}'
+    128:
+      id: "128"
+      row_id: "61"
+      title: Меню подвала
+      name: nm_footer_menu
+      type: typical
+      ordering: "2"
+      tag: div
+      class: py-2
+      wrapper: null
+      options: '{"cut_before":null,"default_col_class":"","md_col_class":"col-md-auto","lg_col_class":"","xl_col_class":"","col_class":"","default_order":0,"sm_order":0,"md_order":0,"lg_order":0,"xl_order":0}'
+widgets:
+  widgets_bind_pages: [ ]
+  widgets_bind: [ ]
