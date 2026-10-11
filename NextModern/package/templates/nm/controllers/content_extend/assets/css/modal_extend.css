@@ -1,0 +1,4 @@
+.custombox-modal{background-color:#fff;max-width:80%;position:relative;}
+.custombox-modal .inner{background-color:#fff;padding:10px;overflow-y:auto;position:relative;}
+.custombox-close {display: block;position: absolute;top: -35px;right: 0;z-index: 10000;outline: none;font-size: 30px;line-height: 30px;transition: transform .3s ease-in-out;color: #FFF;}
+.custombox-close:hover {transform: rotate(360deg);color: #FFF;}
