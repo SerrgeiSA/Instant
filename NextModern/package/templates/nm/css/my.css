@@ -1,0 +1,83 @@
+
+/* Шаблон ТК Документы */
+
+.docs-filter .icms-filter-container{
+	background:none !important;
+	padding:0 !important;
+	position:relative;
+}
+.docs-filter .close,
+.docs-filter .buttons{
+	display:none !important;
+}
+
+
+
+/* Новый стиль для кнопки Подписаться в разделе ТК */
+
+.icms-body-toolbox .subscribe_wrap .count-subscribers{
+	border:0 !important;
+	margin:0 !important;
+	border-radius:0px;
+	background:none !important;
+	padding-left:0;
+	font-size:0.9rem;
+}
+.icms-body-toolbox .subscribe_wrap .count-subscribers:after{
+	display:none !important;
+}
+
+.icms-body-toolbox .subscribe_wrap .subscriber{
+	background:none !important;
+	border:0;
+	margin:0;
+	font-size:1.3rem;
+	padding-right:0;
+}
+
+.icms-body-toolbox .subscribe_wrap{
+	flex-shrink:unset !important;
+	display:inline-flex !important;
+	position:absolute !important;
+	right:2px;
+	background:none;
+}
+
+.icms-body-toolbox .subscribe_wrap .count-subscribers{
+	color:#212529;
+} 
+.icms-body-toolbox .subscribe_wrap .subscriber{
+	color:var(--primary) !important;
+}
+
+.icms-body-toolbox .subscribe_wrap .icms-subscriptions__label{
+	display:none;
+}
+
+@media screen and (max-width: 768px) {
+	
+.icms-body-toolbox .subscribe_wrap .subscriber{	
+	font-size:1.3rem;
+}
+.icms-body-toolbox .subscribe_wrap{
+	right:15px;
+}
+
+}
+
+
+
+
+
+/* Дизайн комментариев */
+
+.comment .icms-user-avatar>img {
+    max-width: 32px;
+}
+
+.comment .icms-comment-html{
+	border:0;
+}
+.comment .icms-comment-html:before{
+	display:none;
+}
